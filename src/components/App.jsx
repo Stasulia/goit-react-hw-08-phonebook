@@ -1,17 +1,17 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { Loader } from './Loader/Loader';
 import { Route, Routes } from 'react-router-dom';
-import Layout from 'Layout,jsx/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { isAuthSelector, profileSelector } from 'store/auth/selectors';
 import { refreshThunk } from 'store/auth/thunk';
-import RegistrationPage from 'pages/RegistrationPage';
-import LoginPage from 'pages/LoginPage';
-import Phonebook from 'pages/Phonebook';
-//import PrivateRoute from 'guards/PrivateRoute';
-//import PublicRoute from 'guards/PublicRoute';
+import PublicRoute from 'guards/PublicRoute';
+import PrivateRoute from 'guards/PrivateRoute';
 
-const Home = lazy(() => import('pages/HomePage'));
+const Layout = lazy(() => import('Layout/Layout'));
+const HomePage = lazy(() => import('pages/HomePage'));
+const RegistrationPage = lazy(() => import('pages/RegistrationPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const Phonebook = lazy(() => import('pages/Phonebook'));
 
 export const App = () => {
   const profile = useSelector(profileSelector);
@@ -45,22 +45,29 @@ export const App = () => {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/registration" element={<RegistrationPage />} />
+            <Route index element={<HomePage />} />
+            <Route
+              path="/registration"
+              element={
+                <PublicRoute>
+                  <RegistrationPage />
+                </PublicRoute>
+              }
+            />
             <Route
               path="/login"
-              elements={
-                // <PublicRoute>
-                <LoginPage />
-                // </PublicRoute>
+              element={
+                <PublicRoute>
+                  <LoginPage />
+                </PublicRoute>
               }
             />
             <Route
               path="/contacts"
               element={
-                //<PrivateRoute>
-                <Phonebook />
-                //</PrivateRoute>
+                <PrivateRoute>
+                  <Phonebook />{' '}
+                </PrivateRoute>
               }
             />
           </Route>

@@ -29,7 +29,7 @@ const ContactList = () => {
         {selectorContacts.map(({ id, name, number }) => (
           <li key={id} className={css.contactItem}>
             <p className={css.contactText}>
-              {name} : {number}
+            <span className={css.contactName}>{name}</span>   : {number}
             </p>
             <button
               className={css.contactBtn}

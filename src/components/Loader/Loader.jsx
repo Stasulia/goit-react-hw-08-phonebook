@@ -10,7 +10,7 @@ export const Loader = () => {
         <Circles
           height="80"
           width="80"
-          color="rgb(164, 218, 220)"
+          color=" rgb(50, 13, 185);"
           ariaLabel="circles-loading"
           wrapperStyle={{
             display: 'flex',

@@ -6,6 +6,7 @@ import {
   setTokenApi,
   signUpApi,
 } from 'components/service/authApi';
+import Notiflix from 'notiflix';
 
 export const signUpThunk = createAsyncThunk(
   'auth/signUp',
@@ -13,6 +14,7 @@ export const signUpThunk = createAsyncThunk(
     try {
       return await signUpApi(body);
     } catch (error) {
+      Notiflix.Notify.warning('Something goes wrong. Please, try again');
       return rejectWithValue(error.response.data.error);
     }
   }
@@ -24,6 +26,7 @@ export const loginThunk = createAsyncThunk(
     try {
       return await loginApi(body);
     } catch (error) {
+      Notiflix.Notify.warning('Something goes wrong. Please, try again');
       return rejectWithValue(error.response.data.error);
     }
   }

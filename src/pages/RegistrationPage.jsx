@@ -10,7 +10,9 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="container">
+    <div
+    // className="container"
+    >
       <title>Registration</title>
       <FormRegistration register={register} />
     </div>

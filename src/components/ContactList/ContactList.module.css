@@ -1,16 +1,38 @@
 .contactList {
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
-  list-style-type: disc;
+  margin-top: 30px;
+  width: 600px;
+  margin: auto;
 }
 .contactItem {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  /* align-items: center;
+  margin: 5px; */
+}
+/* .contactList {
+  display: block;
+  justify-content: center;
+  flex-direction: column;
+
+  margin-left: 15px;
+  list-style-type: disc;
   gap: 10px;
-  /* margin-top: 15px; */
+  width: 400px;
+  margin: auto;
+} */
+/* .contactItem {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
   align-items: center;
   justify-content: space-between;
-}
+  padding: 5px;
+} */
 .itemName {
   font-weight: 500;
 }
@@ -21,4 +43,8 @@
 .contactBtn {
   width: 100px;
   height: 20px;
+}
+.contactName {
+  color: rgb(50, 13, 185);
+  font-weight: 700;
 }

@@ -19,7 +19,14 @@ const LoginPage = () => {
   const login = body => {
     dispatch(loginThunk(body));
   };
-  return <FormLogin login={login} />;
+  return (
+    <div
+    // className="container"
+    >
+      <title>Login</title>
+      <FormLogin login={login} />
+    </div>
+  );
 };
 
 export default LoginPage;

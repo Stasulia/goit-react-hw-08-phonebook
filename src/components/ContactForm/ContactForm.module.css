@@ -8,6 +8,7 @@
   .container { */
   display: flex;
   margin-top: 15px;
+  margin-bottom: 50px;
   -webkit-box-pack: center;
   justify-content: center;
   gap: 20px;

@@ -1,0 +1,12 @@
+.nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.btnLogout {
+  margin: auto;
+}
+.text {
+  font-weight: 500;
+  font-size: 20px;
+}

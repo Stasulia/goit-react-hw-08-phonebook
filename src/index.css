@@ -43,7 +43,9 @@ li {
   justify-content: space-between;
   align-items: center;
   gap: 50px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  width: 308px;
+  margin: 50px auto;
   /* text-align: center;
   font-size: 36px;
   margin-top: 30px;

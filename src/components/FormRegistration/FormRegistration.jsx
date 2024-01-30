@@ -1,20 +1,19 @@
-import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import css from './FormRegistration.module.css';
 
 const FormRegistration = ({ register }) => {
-  const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
-    //  const form = e.currentTarget;
+
     const { name, email, password } = e.target.elements;
-    dispatch(
-      register({
-        name: name.value,
-        email: email.value,
-        password: password.value,
-      })
-    );
-    // form.reset();
+
+    register({
+      name: name.value,
+      email: email.value,
+      password: password.value,
+    });
+
+    e.target.reset();
   };
   return (
     <div
@@ -45,7 +44,9 @@ const FormRegistration = ({ register }) => {
         <button type="submit" className={css.regBtn}>
           Registration
         </button>
-        {/* <Link to="/login">Login</Link> */}
+        <Link className={css.login} to="/login">
+          Login
+        </Link>
       </form>
     </div>
   );
